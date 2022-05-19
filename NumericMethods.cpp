@@ -19,7 +19,7 @@ double derivFunc(double x)
     return (1 / (2 * pow(x, 0.5))) + 2 * sin(x);
 }
 
-double SimpleIteration(double x0, double epsilon)
+double SIteration(double x0, double epsilon)
 {
     x0 = Function(x0);
     while (abs(x0 - Function(x0)) >= epsilon)
@@ -29,7 +29,7 @@ double SimpleIteration(double x0, double epsilon)
     return x0;
 }
 
-double EquationRelaxationMethod(double firstApproach, double epsilon)
+double ERMethod(double firstApproach, double epsilon)
 {
 
     double curr, next = firstApproach;
@@ -39,7 +39,7 @@ double EquationRelaxationMethod(double firstApproach, double epsilon)
     } while (abs(next - curr) > epsilon);
     return next;
 }
-double modifNewton(double x, double epsilon)
+double mNewton(double x, double epsilon)
 {
     double h = func(x) / derivFunc(x);
     while (abs(h) >= epsilon)
@@ -53,7 +53,7 @@ double modifNewton(double x, double epsilon)
 
 int main()
 {
-    cout << SimpleIteration(0.5, 0.0001) << endl;
-    cout << EquationRelaxationMethod(0.5, 0.0001) << endl;
-    cout << modifNewton(0.5, 0.0001);
+    cout << SIteration(0.5, 0.0001) << endl;
+    cout << ERMethod(0.5, 0.0001) << endl;
+    cout << mNewton(0.5, 0.0001);
 }
